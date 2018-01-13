@@ -1,0 +1,174 @@
+C51 COMPILER V9.53.0.0   KEYPAD                                                            01/12/2018 14:30:02 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE KEYPAD
+OBJECT MODULE PLACED IN .\src\keypad.OBJ
+COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v4\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\Jacques
+                    -\SimplicityStudio\v4_workspace\BBchip8\src\keypad.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATFUZZY(
+                    -3) OPTIMIZE(9,SPEED) DEFINE(NDEBUG=1) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:\Users\Jacques\SimplicityStudio\v4_workspace
+                    -\BBchip8\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/shared/si8051base;C:/SiliconLabs/Simp
+                    -licityStudio/v4/developer/sdks/8051/v4.1.0//Device/EFM8BB1/inc) REGFILE(BBchip8.ORC) PRINT(.\src\keypad.lst) COND CODE P
+                    -AGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\keypad.OBJ)
+
+line level    source
+
+   1          /*
+   2           * keys.c
+   3           *
+   4           *  Created on: 2018-01-09
+   5           *      Author: Jacques
+   6           */
+   7          
+   8          #include "keypad.h"
+   9          #include "chip8.h"
+  10          
+  11          // read keypad, debounced.
+  12          // the keypad state must be stable for DEBOUNCE_DLY.
+  13          unsigned char keypad_read(){
+  14   1              char count=0;
+  15   1              char kp,nkp;
+  16   1      
+  17   1      #define DEBOUNCE_DLY (10)
+  18   1      
+  19   1              kp = ~(0xc0+((P0&0x60)>>1)+(P1&0xf));
+  20   1              do{
+  21   2                      nkp=~(0xc0+((P0&0x60)>>1)+(P1&0xf));
+  22   2                  if (nkp==kp){
+  23   3                      count++;
+  24   3                  }else{
+  25   3                      count=0;
+  26   3                      kp=nkp;
+  27   3                  }
+  28   2                  pause(1);
+  29   2              }while (count<DEBOUNCE_DLY);
+  30   1              return kp;
+  31   1      }
+  32          
+  33          // wait for any key pressed.
+  34          unsigned char wait_key(){
+  35   1              unsigned char key;
+  36   1              while ((key=keypad_read())==KEY_NONE);
+  37   1              return key;
+  38   1      }
+  39          
+  40          // return 1 if key is down else return 0
+  41          unsigned char key_down(uint8_t key){
+  42   1              char k;
+  43   1              k= keypad_read();
+  44   1              return k & key;
+  45   1      }
+C51 COMPILER V9.53.0.0   KEYPAD                                                            01/12/2018 14:30:02 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION Com000B (BEGIN)
+0000         L?0012:
+0000 E580              MOV     A,P0
+0002 5460              ANL     A,#060H
+0004 C3                CLR     C
+0005 13                RRC     A
+0006 24C0              ADD     A,#0C0H
+0008 FF                MOV     R7,A
+0009 E590              MOV     A,P1
+000B 540F              ANL     A,#0FH
+000D 2F                ADD     A,R7
+000E F4                CPL     A
+000F 22                RET     
+             ; FUNCTION Com000B (END)
+
+             ; FUNCTION keypad_read (BEGIN)
+                                           ; SOURCE LINE # 13
+                                           ; SOURCE LINE # 14
+0000 E4                CLR     A
+0001 F500        R     MOV     count,A
+                                           ; SOURCE LINE # 19
+0003 120000      R     LCALL   L?0012
+0006 F500        R     MOV     kp,A
+0008         ?C0003:
+                                           ; SOURCE LINE # 20
+                                           ; SOURCE LINE # 21
+0008 120000      R     LCALL   L?0012
+000B FF                MOV     R7,A
+;---- Variable 'nkp' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 22
+000C B50004            CJNE    A,kp,?C0004
+                                           ; SOURCE LINE # 23
+000F 0500        R     INC     count
+                                           ; SOURCE LINE # 24
+0011 8005              SJMP    ?C0005
+0013         ?C0004:
+                                           ; SOURCE LINE # 25
+0013 E4                CLR     A
+0014 F500        R     MOV     count,A
+                                           ; SOURCE LINE # 26
+0016 8F00        R     MOV     kp,R7
+                                           ; SOURCE LINE # 27
+0018         ?C0005:
+                                           ; SOURCE LINE # 28
+0018 7F01              MOV     R7,#01H
+001A 7E00              MOV     R6,#00H
+001C 120000      E     LCALL   _pause
+                                           ; SOURCE LINE # 29
+001F C3                CLR     C
+0020 E500        R     MOV     A,count
+0022 6480              XRL     A,#080H
+0024 948A              SUBB    A,#08AH
+0026 40E0              JC      ?C0003
+                                           ; SOURCE LINE # 30
+0028 AF00        R     MOV     R7,kp
+                                           ; SOURCE LINE # 31
+002A         ?C0006:
+002A 22                RET     
+             ; FUNCTION keypad_read (END)
+
+C51 COMPILER V9.53.0.0   KEYPAD                                                            01/12/2018 14:30:02 PAGE 3   
+
+             ; FUNCTION wait_key (BEGIN)
+                                           ; SOURCE LINE # 34
+0000         ?C0007:
+                                           ; SOURCE LINE # 36
+0000 120000      R     LCALL   keypad_read
+;---- Variable 'key' assigned to Register 'R7' ----
+0003 EF                MOV     A,R7
+0004 60FA              JZ      ?C0007
+0006         ?C0008:
+                                           ; SOURCE LINE # 37
+                                           ; SOURCE LINE # 38
+0006         ?C0009:
+0006 22                RET     
+             ; FUNCTION wait_key (END)
+
+             ; FUNCTION _key_down (BEGIN)
+                                           ; SOURCE LINE # 41
+0000 8F00        R     MOV     key,R7
+                                           ; SOURCE LINE # 43
+0002 120000      R     LCALL   keypad_read
+;---- Variable 'k' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 44
+0005 E500        R     MOV     A,key
+0007 5F                ANL     A,R7
+0008 FF                MOV     R7,A
+                                           ; SOURCE LINE # 45
+0009         ?C0010:
+0009 22                RET     
+             ; FUNCTION _key_down (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

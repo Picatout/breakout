@@ -1,0 +1,914 @@
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     1
+
+
+MACRO ASSEMBLER AX51 V3.12.0.0
+OBJECT MODULE PLACED IN .\src\Interrupts.OBJ
+ASSEMBLER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v4\developer\toolchains\keil_8051\9.53\BIN\AX51.exe C:\Users\Jacqu
+                      es\SimplicityStudio\v4_workspace\BBchip8\Keil 8051 v9.53 - Release\src\Interrupts.SRC ERRORPRINT S
+                      ET(SMALL,SILABS_STARTUP=1) DEBUG MACRO NOMOD51 INCDIR(C:\Users\Jacques\SimplicityStudio\v4_workspa
+                      ce\BBchip8\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/shared/si8051
+                      base;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/EFM8BB1/inc) PRINT(.\sr
+                      c\Interrupts.lst) COND SYMBOLS PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\Interrupts.OBJ) 
+
+LOC    OBJ             LINE     SOURCE
+
+                          1     ; src\Interrupts.SRC generated from: C:\Users\Jacques\SimplicityStudio\v4_workspace\BBch
+                               ip8\src\Interrupts.c
+                          2     ; COMPILER INVOKED BY:
+                          3     ;        c:\SiliconLabs\SimplicityStudio\v4\developer\toolchains\keil_8051\9.53\BIN\C51.
+                               exe C:\Users\Jacques\SimplicityStudio\v4_workspace\BBchip8\src\Interrupts.c OMF2 SMALL DE
+                               BUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATFUZZY(3) OPTIMIZE(9,SPEED) DEFINE(NDEBUG
+                               =1) INTVECTOR(0X0000) INTPROMOTE SRC(src\Interrupts.SRC) INCDIR(C:\Users\Jacques\Simplici
+                               tyStudio\v4_workspace\BBchip8\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/
+                               v4.1.0//Device/shared/si8051base;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v
+                               4.1.0//Device/EFM8BB1/inc) REGFILE(BBchip8.ORC) PRINT(.\src\Interrupts.lst) COND CODE PAGEWIDTH(120) PAGELENGTH(65)
+                          4     
+                          5     $nomod51 
+                          6     
+                          7     NAME    INTERRUPTS
+                          8     
+ 00A2                     9     SPI0CKR DATA    0A2H
+ 0080                    10     P0      DATA    080H
+ 00D0.2                  11     PSW_OV  BIT     0D0H.2
+ 0090                    12     P1      DATA    090H
+ 0097                    13     WDTCN   DATA    097H
+ 00A0                    14     P2      DATA    0A0H
+ 00BC                    15     ADC0CF  DATA    0BCH
+ 00C8.0                  16     TMR2CN0_T2XCLK  BIT     0C8H.0
+ 00C0.7                  17     SMB0CN0_MASTER  BIT     0C0H.7
+ 00F9                    18     PCA0    DATA    0F9H
+ 00E6                    19     EIE1    DATA    0E6H
+ 00C0.1                  20     SMB0CN0_ACK     BIT     0C0H.1
+ 008F                    21     PSCTL   DATA    08FH
+ 00E4                    22     IT01CF  DATA    0E4H
+ 00C0.6                  23     SMB0CN0_TXMODE  BIT     0C0H.6
+ 00AD                    24     DERIVID DATA    0ADH
+ 00A4                    25     P0MDOUT DATA    0A4H
+ 00A5                    26     P1MDOUT DATA    0A5H
+ 00E8.5                  27     ADC0CN0_ADINT   BIT     0E8H.5
+ 00CB                    28     TMR2RLH DATA    0CBH
+ 00A6                    29     P2MDOUT DATA    0A6H
+ 00A8                    30     IE      DATA    0A8H
+ 0093                    31     TMR3RLH DATA    093H
+ 00F3                    32     EIP1    DATA    0F3H
+ 0098.2                  33     SCON0_RB8       BIT     098H.2
+ 00CA                    34     TMR2RLL DATA    0CAH
+ 00FC                    35     PCA0CPH0        DATA    0FCH
+ 0092                    36     TMR3RLL DATA    092H
+ 00EA                    37     PCA0CPH1        DATA    0EAH
+ 0098.3                  38     SCON0_TB8       BIT     098H.3
+ 00F0.0                  39     B_B0    BIT     0F0H.0
+ 0082                    40     DP      DATA    082H
+ 00EC                    41     PCA0CPH2        DATA    0ECH
+ 00F0.1                  42     B_B1    BIT     0F0H.1
+ 00C3                    43     ADC0GT  DATA    0C3H
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     2
+
+ 00F0.2                  44     B_B2    BIT     0F0H.2
+ 00FB                    45     PCA0CPL0        DATA    0FBH
+ 00F0.3                  46     B_B3    BIT     0F0H.3
+ 00D9                    47     PCA0MD  DATA    0D9H
+ 00DA                    48     PCA0CPM0        DATA    0DAH
+ 00E9                    49     PCA0CPL1        DATA    0E9H
+ 00F0.4                  50     B_B4    BIT     0F0H.4
+ 00DB                    51     PCA0CPM1        DATA    0DBH
+ 00EB                    52     PCA0CPL2        DATA    0EBH
+ 00F0.5                  53     B_B5    BIT     0F0H.5
+ 00DC                    54     PCA0CPM2        DATA    0DCH
+ 00B8                    55     IP      DATA    0B8H
+ 00B9                    56     ADC0TK  DATA    0B9H
+ 00F0.6                  57     B_B6    BIT     0F0H.6
+ 00C5                    58     ADC0LT  DATA    0C5H
+ 0098.5                  59     SCON0_MCE       BIT     098H.5
+ 00F0.7                  60     B_B7    BIT     0F0H.7
+ 00E1                    61     XBR0    DATA    0E1H
+ 00C1                    62     SMB0CF  DATA    0C1H
+ 00E2                    63     XBR1    DATA    0E2H
+ 00C0.5                  64     SMB0CN0_STA     BIT     0C0H.5
+ 00E3                    65     XBR2    DATA    0E3H
+ 00BB                    66     ADC0MX  DATA    0BBH
+ 00E0.0                  67     ACC_ACC0        BIT     0E0H.0
+ 00D1                    68     REF0CN  DATA    0D1H
+ 008E                    69     CKCON0  DATA    08EH
+ 00E0.1                  70     ACC_ACC1        BIT     0E0H.1
+ 00C9                    71     REG0CN  DATA    0C9H
+ 00DD                    72     CRC0IN  DATA    0DDH
+ 00C8.2                  73     TMR2CN0_TR2     BIT     0C8H.2
+ 00E0.2                  74     ACC_ACC2        BIT     0E0H.2
+ 00E0.3                  75     ACC_ACC3        BIT     0E0H.3
+ 0081                    76     SP      DATA    081H
+ 009D                    77     CMP0MD  DATA    09DH
+ 00E0.4                  78     ACC_ACC4        BIT     0E0H.4
+ 00B1                    79     LFO0CN  DATA    0B1H
+ 00AB                    80     CMP1MD  DATA    0ABH
+ 00D8.0                  81     PCA0CN0_CCF0    BIT     0D8H.0
+ 00E0.5                  82     ACC_ACC5        BIT     0E0H.5
+ 00D8.1                  83     PCA0CN0_CCF1    BIT     0D8H.1
+ 00E0.6                  84     ACC_ACC6        BIT     0E0H.6
+ 00CC                    85     TMR2    DATA    0CCH
+ 00D8.2                  86     PCA0CN0_CCF2    BIT     0D8H.2
+ 00E0.7                  87     ACC_ACC7        BIT     0E0H.7
+ 0094                    88     TMR3    DATA    094H
+ 00C0.3                  89     SMB0CN0_ACKRQ   BIT     0C0H.3
+ 00FF                    90     VDM0CN  DATA    0FFH
+ 00F1                    91     P0MDIN  DATA    0F1H
+ 0098.4                  92     SCON0_REN       BIT     098H.4
+ 00AC                    93     SMB0TC  DATA    0ACH
+ 00F2                    94     P1MDIN  DATA    0F2H
+ 00C0.4                  95     SMB0CN0_STO     BIT     0C0H.4
+ 00FE                    96     P0MASK  DATA    0FEH
+ 00EE                    97     P1MASK  DATA    0EEH
+ 00D0.3                  98     PSW_RS0 BIT     0D0H.3
+ 00D8.7                  99     PCA0CN0_CF      BIT     0D8H.7
+ 009E                   100     PCA0CENT        DATA    09EH
+ 00F8.4                 101     SPI0CN0_RXOVRN  BIT     0F8H.4
+ 00D0.4                 102     PSW_RS1 BIT     0D0H.4
+ 00E8.7                 103     ADC0CN0_ADEN    BIT     0E8H.7
+ 0089                   104     TMOD    DATA    089H
+ 0088                   105     TCON    DATA    088H
+ 00CF                   106     CRC0FLIP        DATA    0CFH
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     3
+
+ 00D0.0                 107     PSW_PARITY      BIT     0D0H.0
+ 00A8.4                 108     IE_ES0  BIT     0A8H.4
+ 009F                   109     CMP0MX  DATA    09FH
+ 00A8.1                 110     IE_ET0  BIT     0A8H.1
+ 00AA                   111     CMP1MX  DATA    0AAH
+ 00A8.3                 112     IE_ET1  BIT     0A8H.3
+ 00D4                   113     P0SKIP  DATA    0D4H
+ 00A8.5                 114     IE_ET2  BIT     0A8H.5
+ 00D5                   115     P1SKIP  DATA    0D5H
+ 00E8                   116     ADC0CN0 DATA    0E8H
+ 00A8.0                 117     IE_EX0  BIT     0A8H.0
+ 00B2                   118     ADC0CN1 DATA    0B2H
+ 00D8.6                 119     PCA0CN0_CR      BIT     0D8H.6
+ 00A8.2                 120     IE_EX1  BIT     0A8H.2
+ 0098.7                 121     SCON0_SMODE     BIT     098H.7
+ 00B5                   122     DEVICEID        DATA    0B5H
+ 00A9                   123     CLKSEL  DATA    0A9H
+ 00F8.0                 124     SPI0CN0_SPIEN   BIT     0F8H.0
+ 00F0                   125     B       DATA    0F0H
+ 00BE                   126     ADC0H   DATA    0BEH
+ 00D2                   127     CRC0AUTO        DATA    0D2H
+ 00E8.6                 128     ADC0CN0_ADBMEN  BIT     0E8H.6
+ 00CA                   129     TMR2RL  DATA    0CAH
+ 00BD                   130     ADC0L   DATA    0BDH
+ 0092                   131     TMR3RL  DATA    092H
+ 00D8                   132     PCA0CN0 DATA    0D8H
+ 00E0                   133     ACC     DATA    0E0H
+ 00FB                   134     PCA0CP0 DATA    0FBH
+ 00E9                   135     PCA0CP1 DATA    0E9H
+ 00EB                   136     PCA0CP2 DATA    0EBH
+ 00CE                   137     CRC0CN0 DATA    0CEH
+ 008C                   138     TH0     DATA    08CH
+ 00B8.4                 139     IP_PS0  BIT     0B8H.4
+ 008D                   140     TH1     DATA    08DH
+ 00FA                   141     PCA0H   DATA    0FAH
+ 00B8.1                 142     IP_PT0  BIT     0B8H.1
+ 00B8.3                 143     IP_PT1  BIT     0B8H.3
+ 00C0.2                 144     SMB0CN0_ARBLOST BIT     0C0H.2
+ 00B8.5                 145     IP_PT2  BIT     0B8H.5
+ 008A                   146     TL0     DATA    08AH
+ 00F8.1                 147     SPI0CN0_TXBMT   BIT     0F8H.1
+ 00D0.5                 148     PSW_F0  BIT     0D0H.5
+ 00A8.6                 149     IE_ESPI0        BIT     0A8H.6
+ 008B                   150     TL1     DATA    08BH
+ 00F9                   151     PCA0L   DATA    0F9H
+ 00C0.0                 152     SMB0CN0_SI      BIT     0C0H.0
+ 00D0.1                 153     PSW_F1  BIT     0D0H.1
+ 0080.0                 154     P0_B0   BIT     080H.0
+ 00B8.0                 155     IP_PX0  BIT     0B8H.0
+ 0090.0                 156     P1_B0   BIT     090H.0
+ 0080.1                 157     P0_B1   BIT     080H.1
+ 00B8.2                 158     IP_PX1  BIT     0B8H.2
+ 009B                   159     CMP0CN0 DATA    09BH
+ 0088.1                 160     TCON_IE0        BIT     088H.1
+ 00A0.0                 161     P2_B0   BIT     0A0H.0
+ 0090.1                 162     P1_B1   BIT     090H.1
+ 0080.2                 163     P0_B2   BIT     080H.2
+ 00BF                   164     CMP1CN0 DATA    0BFH
+ 0088.3                 165     TCON_IE1        BIT     088H.3
+ 00A0.1                 166     P2_B1   BIT     0A0H.1
+ 0090.2                 167     P1_B2   BIT     090H.2
+ 0080.3                 168     P0_B3   BIT     080H.3
+ 00C0                   169     SMB0CN0 DATA    0C0H
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     4
+
+ 0090.3                 170     P1_B3   BIT     090H.3
+ 0080.4                 171     P0_B4   BIT     080H.4
+ 0090.4                 172     P1_B4   BIT     090H.4
+ 0080.5                 173     P0_B5   BIT     080H.5
+ 0090.5                 174     P1_B5   BIT     090H.5
+ 0080.6                 175     P0_B6   BIT     080H.6
+ 0090.6                 176     P1_B6   BIT     090H.6
+ 0080.7                 177     P0_B7   BIT     080H.7
+ 0090.7                 178     P1_B7   BIT     090H.7
+ 0083                   179     DPH     DATA    083H
+ 00C4                   180     ADC0GTH DATA    0C4H
+ 00C8.7                 181     TMR2CN0_TF2H    BIT     0C8H.7
+ 00C8.3                 182     TMR2CN0_T2SPLIT BIT     0C8H.3
+ 00D0.6                 183     PSW_AC  BIT     0D0H.6
+ 00F8                   184     SPI0CN0 DATA    0F8H
+ 00C7                   185     HFO0CAL DATA    0C7H
+ 0088.5                 186     TCON_TF0        BIT     088H.5
+ 0098.0                 187     SCON0_RI        BIT     098H.0
+ 0082                   188     DPL     DATA    082H
+ 0088.7                 189     TCON_TF1        BIT     088H.7
+ 0099                   190     SBUF0   DATA    099H
+ 0087                   191     PCON0   DATA    087H
+ 00C3                   192     ADC0GTL DATA    0C3H
+ 00C8.6                 193     TMR2CN0_TF2L    BIT     0C8H.6
+ 0098.1                 194     SCON0_TI        BIT     098H.1
+ 00E8.0                 195     ADC0CN0_ADCM0   BIT     0E8H.0
+ 00C6                   196     ADC0LTH DATA    0C6H
+ 0088.0                 197     TCON_IT0        BIT     088H.0
+ 00E8.1                 198     ADC0CN0_ADCM1   BIT     0E8H.1
+ 00EF                   199     RSTSRC  DATA    0EFH
+ 00FD                   200     P0MAT   DATA    0FDH
+ 00DE                   201     CRC0DAT DATA    0DEH
+ 0088.2                 202     TCON_IT1        BIT     088H.2
+ 00E8.2                 203     ADC0CN0_ADCM2   BIT     0E8H.2
+ 0098                   204     SCON0   DATA    098H
+ 00F6                   205     PRTDRV  DATA    0F6H
+ 00ED                   206     P1MAT   DATA    0EDH
+ 00E8.3                 207     ADC0CN0_ADWINT  BIT     0E8H.3
+ 00E8.4                 208     ADC0CN0_ADBUSY  BIT     0E8H.4
+ 00D6                   209     SMB0ADM DATA    0D6H
+ 00C5                   210     ADC0LTL DATA    0C5H
+ 00F8.5                 211     SPI0CN0_MODF    BIT     0F8H.5
+ 00B8.6                 212     IP_PSPI0        BIT     0B8H.6
+ 009C                   213     PCA0CLR DATA    09CH
+ 00C8                   214     TMR2CN0 DATA    0C8H
+ 0091                   215     TMR3CN0 DATA    091H
+ 00D7                   216     SMB0ADR DATA    0D7H
+ 0088.4                 217     TCON_TR0        BIT     088H.4
+ 00C8.4                 218     TMR2CN0_TF2CEN  BIT     0C8H.4
+ 0088.6                 219     TCON_TR1        BIT     088H.6
+ 00C2                   220     SMB0DAT DATA    0C2H
+ 00CD                   221     TMR2H   DATA    0CDH
+ 00A1                   222     SPI0CFG DATA    0A1H
+ 0095                   223     TMR3H   DATA    095H
+ 00D3                   224     CRC0CNT DATA    0D3H
+ 0096                   225     PCA0POL DATA    096H
+ 00CC                   226     TMR2L   DATA    0CCH
+ 00F8.7                 227     SPI0CN0_SPIF    BIT     0F8H.7
+ 0094                   228     TMR3L   DATA    094H
+ 00DF                   229     ADC0PWR DATA    0DFH
+ 00A8.7                 230     IE_EA   BIT     0A8H.7
+ 00C8.5                 231     TMR2CN0_TF2LEN  BIT     0C8H.5
+ 00F8.6                 232     SPI0CN0_WCOL    BIT     0F8H.6
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     5
+
+ 00F8.2                 233     SPI0CN0_NSSMD0  BIT     0F8H.2
+ 00D0.7                 234     PSW_CY  BIT     0D0H.7
+ 00A3                   235     SPI0DAT DATA    0A3H
+ 00F8.3                 236     SPI0CN0_NSSMD1  BIT     0F8H.3
+ 00BD                   237     ADC0    DATA    0BDH
+ 00D0                   238     PSW     DATA    0D0H
+ 00F7                   239     PCA0PWM DATA    0F7H
+ 00B6                   240     REVID   DATA    0B6H
+ 00B7                   241     FLKEY   DATA    0B7H
+ 00B3                   242     ADC0AC  DATA    0B3H
+------                  243     ?PR?TIMER0_ISR?INTERRUPTS                SEGMENT CODE 
+------                  244     ?PR?PCA0_ISR?INTERRUPTS                  SEGMENT CODE 
+------                  245     ?DT?INTERRUPTS       SEGMENT DATA 
+------                  246     ?C_INITSEG           SEGMENT CODE 
+                        247             EXTRN   XDATA (video)
+                        248             EXTRN   DATA (tmr_reload)
+                        249             EXTRN   CODE (?C?SIDIV)
+                        250             PUBLIC  PCA0_ISR
+                        251             PUBLIC  TIMER0_ISR
+                        252     
+------                  253             RSEG  ?DT?INTERRUPTS
+000000                  254      line_count?142:   DS   2
+                        255     
+------                  256             RSEG  ?DT?INTERRUPTS
+000002                  257          f_even?143:   DS   1
+                        258     
+------                  259             RSEG  ?DT?INTERRUPTS
+000003                  260         f_video?144:   DS   1
+                        261     
+------                  262             RSEG  ?C_INITSEG
+000000 02               263             DB      002H
+000001 00         F     264             DB      line_count?142
+000002 0000             265             DW      00000H
+                        266     
+000004 01               267             DB      001H
+000005 00         F     268             DB      f_even?143
+000006 00               269             DB      000H
+                        270     
+000007 01               271             DB      001H
+000008 00         F     272             DB      f_video?144
+000009 00               273             DB      000H
+                        274     
+                        275     ; //=========================================================
+                        276     ; // src/Interrupts.c: generated by Hardware Configurator
+                        277     ; //
+                        278     ; // This file will be regenerated when saving a document.
+                        279     ; // leave the sections inside the "$[...]" comment tags alone
+                        280     ; // or they will be overwritten!
+                        281     ; //=========================================================
+                        282     ; 
+                        283     ; // USER INCLUDES
+                        284     ; #include <SI_EFM8BB1_Register_Enums.h>
+                        285     ; 
+                        286     ; #include "chip8.h"
+                        287     ; 
+                        288     ; //-----------------------------------------------------------------------------
+                        289     ; // TIMER0_ISR
+                        290     ; //-----------------------------------------------------------------------------
+                        291     ; //
+                        292     ; // TIMER0 ISR Content goes here. Remember to clear flag bits:
+                        293     ; // TCON::TF0 (Timer 0 Overflow Flag)
+                        294     ; //
+                        295     ; //-----------------------------------------------------------------------------
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     6
+
+00000B                  296     CSEG    AT      0000BH
+00000B 020000     F     297             LJMP    TIMER0_ISR
+                        298     
+                        299     ; SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
+                        300     
+------                  301             RSEG  ?PR?TIMER0_ISR?INTERRUPTS
+                        302             USING   0
+000000                  303     TIMER0_ISR:
+000000 C0E0             304             PUSH    ACC
+000002 C0D0             305             PUSH    PSW
+                        306             USING   0
+                        307                             ; SOURCE LINE # 22
+                        308     ; {
+                        309     ;       TCON_TF0=0;
+                        310                             ; SOURCE LINE # 24
+000004 C28D             311             CLR     TCON_TF0
+                        312     ;       P0_B7^=1;
+                        313                             ; SOURCE LINE # 25
+000006 A287             314             MOV     C,P0_B7
+000008 B3               315             CPL     C
+000009 9287             316             MOV     P0_B7,C
+                        317     ;       TL0=tmr_reload&255;
+                        318                             ; SOURCE LINE # 26
+00000B E500       E     319             MOV     A,tmr_reload+01H
+00000D F58A             320             MOV     TL0,A
+                        321     ;       TH0=tmr_reload>>8;
+                        322                             ; SOURCE LINE # 27
+00000F E500       E     323             MOV     A,tmr_reload
+000011 F58C             324             MOV     TH0,A
+                        325     ; }
+                        326                             ; SOURCE LINE # 28
+000013 D0D0             327             POP     PSW
+000015 D0E0             328             POP     ACC
+000017 32               329             RETI    
+                        330     ; END OF TIMER0_ISR
+                        331     
+00005B                  332     CSEG    AT      0005BH
+00005B 020000     F     333             LJMP    PCA0_ISR
+                        334     
+                        335     ; 
+                        336     ; /* The PCA0 is used to generate NTSC signal
+                        337     ;  *  channel 0 count video lines and start sync pulse
+                        338     ;  *  channel 1 end sync pulse
+                        339     ;  *  channel 3 serialize video pixels using SPI0
+                        340     ;  */
+                        341     ; 
+                        342     ; //-----------------------------------------------------------------------------
+                        343     ; // PCA0_ISR
+                        344     ; //-----------------------------------------------------------------------------
+                        345     ; //
+                        346     ; // PCA0 ISR Content goes here. Remember to clear flag bits:
+                        347     ; // PCA0CN0::CCF0 (PCA Module 0 Capture/Compare Flag)
+                        348     ; // PCA0CN0::CCF1 (PCA Module 1 Capture/Compare Flag)
+                        349     ; // PCA0CN0::CCF2 (PCA Module 2 Capture/Compare Flag)
+                        350     ; // PCA0CN0::CF (PCA Counter/Timer Overflow Flag)
+                        351     ; // PCA0PWM::COVF (Cycle Overflow Flag)
+                        352     ; //
+                        353     ; //-----------------------------------------------------------------------------
+                        354     ; SI_INTERRUPT_USING (PCA0_ISR, PCA0_IRQn,1)// use register bank 1
+                        355     
+------                  356             RSEG  ?PR?PCA0_ISR?INTERRUPTS
+                        357             USING   1
+000000                  358     PCA0_ISR:
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     7
+
+000000 C0E0             359             PUSH    ACC
+000002 C0F0             360             PUSH    B
+000004 C083             361             PUSH    DPH
+000006 C082             362             PUSH    DPL
+000008 C0D0             363             PUSH    PSW
+                        364             USING   1
+00000A 75D008           365             MOV     PSW,#08H
+                        366                             ; SOURCE LINE # 48
+                        367     ; {
+                        368     ;       char i;
+                        369     ;       unsigned char xdata *ln;
+                        370     ; 
+                        371     ;       static int line_count=0;
+                        372     ;       static unsigned char f_even=0;
+                        373     ;       static unsigned char f_video=0;
+                        374     ; 
+                        375     ;       if (PCA0CN0_CCF0) { // hline sync
+                        376                             ; SOURCE LINE # 57
+00000D 30D842           377             JNB     PCA0CN0_CCF0,?C0002
+                        378     ;               PCA0CN0_CCF0=0;
+                        379                             ; SOURCE LINE # 58
+000010 C2D8             380             CLR     PCA0CN0_CCF0
+                        381     ;               line_count++;
+                        382                             ; SOURCE LINE # 59
+000012 0500       F     383             INC     line_count?142+01H
+000014 E500       F     384             MOV     A,line_count?142+01H
+000016 7002             385             JNZ     ?C0024
+000018 0500       F     386             INC     line_count?142
+00001A                  387     ?C0024:
+                        388     ;               if ((f_even && (line_count==262))||(!f_even && (line_count==263))) {
+                        389                             ; SOURCE LINE # 60
+00001A E500       F     390             MOV     A,f_even?143
+00001C 600C             391             JZ      ?C0005
+00001E E500       F     392             MOV     A,line_count?142+01H
+000020 6406             393             XRL     A,#06H
+000022 7004             394             JNZ     ?C0025
+000024 E500       F     395             MOV     A,line_count?142
+000026 6401             396             XRL     A,#01H
+000028                  397     ?C0025:
+000028 600E             398             JZ      ?C0004
+00002A                  399     ?C0005:
+00002A E500       F     400             MOV     A,f_even?143
+00002C 7013             401             JNZ     ?C0003
+00002E E500       F     402             MOV     A,line_count?142+01H
+000030 B4070E           403             CJNE    A,#07H,?C0003
+000033 E500       F     404             MOV     A,line_count?142
+000035 B40109           405             CJNE    A,#01H,?C0003
+000038                  406     ?C0004:
+                        407     ;                       line_count=0;
+                        408                             ; SOURCE LINE # 61
+000038 750000     F     409             MOV     line_count?142,#00H
+00003B 750000     F     410             MOV     line_count?142+01H,#00H
+                        411     ;                       f_even^=1;
+                        412                             ; SOURCE LINE # 62
+00003E 630001     F     413             XRL     f_even?143,#01H
+                        414     ;               }
+                        415                             ; SOURCE LINE # 63
+000041                  416     ?C0003:
+                        417     ;               P0_B4=0;
+                        418                             ; SOURCE LINE # 64
+000041 C284             419             CLR     P0_B4
+                        420     ;               PCA0CP0+=400;
+                        421                             ; SOURCE LINE # 65
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     8
+
+000043 7490             422             MOV     A,#090H
+000045 25FB             423             ADD     A,PCA0CP0
+000047 F5FB             424             MOV     PCA0CP0,A
+000049 7401             425             MOV     A,#01H
+00004B 35FC             426             ADDC    A,PCA0CP0+01H
+00004D F5FC             427             MOV     PCA0CP0+01H,A
+                        428     ;       } else if (PCA0CN0_CCF1) { // hsync pulse end
+                        429                             ; SOURCE LINE # 66
+00004F 020000     F     430             LJMP    ?C0023
+000052                  431     ?C0002:
+000052 30D92F           432             JNB     PCA0CN0_CCF1,?C0007
+                        433     ;               PCA0CN0_CCF1=0;
+                        434                             ; SOURCE LINE # 67
+000055 C2D9             435             CLR     PCA0CN0_CCF1
+                        436     ;               PCA0CP1+=400;
+                        437                             ; SOURCE LINE # 68
+000057 7490             438             MOV     A,#090H
+000059 25E9             439             ADD     A,PCA0CP1
+00005B F5E9             440             MOV     PCA0CP1,A
+00005D 7401             441             MOV     A,#01H
+00005F 35EA             442             ADDC    A,PCA0CP1+01H
+000061 F5EA             443             MOV     PCA0CP1+01H,A
+                        444     ;               switch(line_count) {
+                        445                             ; SOURCE LINE # 69
+000063 E500       F     446             MOV     A,line_count?142
+000065 7019             447             JNZ     ?C0014
+000067 E500       F     448             MOV     A,line_count?142+01H
+000069 14               449             DEC     A
+00006A 24FD             450             ADD     A,#0FDH
+00006C 506D             451             JNC     ?C0023
+00006E 241C             452             ADD     A,#01CH
+000070 600B             453             JZ      ?C0013
+000072 24C0             454             ADD     A,#0C0H
+000074 700A             455             JNZ     ?C0014
+                        456     ;                       case 1:
+                        457                             ; SOURCE LINE # 70
+                        458     ;                       case 2:
+                        459                             ; SOURCE LINE # 71
+                        460     ;                       case 3:
+                        461                             ; SOURCE LINE # 72
+                        462     ;                       break;
+                        463                             ; SOURCE LINE # 73
+                        464     ;                       case 40:
+                        465                             ; SOURCE LINE # 74
+000076                  466     ?C0012:
+                        467     ;                       f_video=1;
+                        468                             ; SOURCE LINE # 75
+000076 750001     F     469             MOV     f_video?144,#01H
+                        470     ;                       P0_B4=1;
+                        471                             ; SOURCE LINE # 76
+000079 D284             472             SETB    P0_B4
+                        473     ;                       break;
+                        474                             ; SOURCE LINE # 77
+00007B 805E             475             SJMP    ?C0023
+                        476     ;                       case 232:
+                        477                             ; SOURCE LINE # 78
+00007D                  478     ?C0013:
+                        479     ;                       f_video=0;
+                        480                             ; SOURCE LINE # 79
+00007D 750000     F     481             MOV     f_video?144,#00H
+                        482     ;                       default:
+                        483                             ; SOURCE LINE # 80
+000080                  484     ?C0014:
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE     9
+
+                        485     ;                       P0_B4=1;
+                        486                             ; SOURCE LINE # 81
+000080 D284             487             SETB    P0_B4
+                        488     ;               } //switch
+                        489                             ; SOURCE LINE # 82
+                        490     ; 
+                        491     ;       } else if (PCA0CN0_CCF2) { // video output
+                        492                             ; SOURCE LINE # 84
+000082 8057             493             SJMP    ?C0023
+000084                  494     ?C0007:
+000084 30DA54           495             JNB     PCA0CN0_CCF2,?C0023
+                        496     ;               PCA0CN0_CCF2=0;
+                        497                             ; SOURCE LINE # 85
+000087 C2DA             498             CLR     PCA0CN0_CCF2
+                        499     ;               PCA0CP2+=400;
+                        500                             ; SOURCE LINE # 86
+000089 7490             501             MOV     A,#090H
+00008B 25EB             502             ADD     A,PCA0CP2
+00008D F5EB             503             MOV     PCA0CP2,A
+00008F 7401             504             MOV     A,#01H
+000091 35EC             505             ADDC    A,PCA0CP2+01H
+000093 F5EC             506             MOV     PCA0CP2+01H,A
+                        507     ;               if (f_video) {
+                        508                             ; SOURCE LINE # 87
+000095 E500       F     509             MOV     A,f_video?144
+000097 6042             510             JZ      ?C0023
+                        511     ;                       ln=&video[(line_count-40)/6*8];
+                        512                             ; SOURCE LINE # 88
+000099 E500       F     513             MOV     A,line_count?142+01H
+00009B 24D8             514             ADD     A,#0D8H
+00009D FF               515             MOV     R7,A
+00009E E500       F     516             MOV     A,line_count?142
+0000A0 34FF             517             ADDC    A,#0FFH
+0000A2 FE               518             MOV     R6,A
+0000A3 7C00             519             MOV     R4,#00H
+0000A5 7D06             520             MOV     R5,#06H
+0000A7 120000     E     521             LCALL   ?C?SIDIV
+0000AA EF               522             MOV     A,R7
+0000AB 7803             523             MOV     R0,#03H
+0000AD                  524     ?C0027:
+0000AD C3               525             CLR     C
+0000AE 33               526             RLC     A
+0000AF CE               527             XCH     A,R6
+0000B0 33               528             RLC     A
+0000B1 CE               529             XCH     A,R6
+0000B2 D8F9             530             DJNZ    R0,?C0027
+0000B4 2400       E     531             ADD     A,#LOW (video)
+0000B6 F582             532             MOV     DPL,A
+0000B8 7400       E     533             MOV     A,#HIGH (video)
+0000BA 3E               534             ADDC    A,R6
+0000BB AF82             535             MOV     R7,DPL
+0000BD FE               536             MOV     R6,A
+                        537     ;---- Variable 'ln?141' assigned to Register 'R6/R7' ----
+                        538     ;                       for (i=0;i<8;i++) {
+                        539                             ; SOURCE LINE # 89
+                        540     ;---- Variable 'i?140' assigned to Register 'R5' ----
+0000BE E4               541             CLR     A
+0000BF FD               542             MOV     R5,A
+0000C0                  543     ?C0018:
+                        544     ;                               SPI0DAT= *ln++;
+                        545                             ; SOURCE LINE # 90
+0000C0 0F               546             INC     R7
+0000C1 EF               547             MOV     A,R7
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    10
+
+0000C2 AA0E             548             MOV     R2,AR6
+0000C4 7001             549             JNZ     ?C0028
+0000C6 0E               550             INC     R6
+0000C7                  551     ?C0028:
+0000C7 14               552             DEC     A
+0000C8 F582             553             MOV     DPL,A
+0000CA 8A83             554             MOV     DPH,R2
+0000CC E0               555             MOVX    A,@DPTR
+0000CD F5A3             556             MOV     SPI0DAT,A
+0000CF                  557     ?C0021:
+                        558     ;                               while (!(SPI0CN0&SPI0CN0_TXBMT__BMASK));
+                        559                             ; SOURCE LINE # 91
+0000CF E5F8             560             MOV     A,SPI0CN0
+0000D1 30E1FB           561             JNB     ACC.1,?C0021
+0000D4                  562     ?C0022:
+                        563     ;                       }
+                        564                             ; SOURCE LINE # 92
+0000D4                  565     ?C0020:
+0000D4 0D               566             INC     R5
+0000D5 BD08E8           567             CJNE    R5,#08H,?C0018
+0000D8                  568     ?C0019:
+                        569     ;                       SPI0DAT=0;
+                        570                             ; SOURCE LINE # 93
+0000D8 75A300           571             MOV     SPI0DAT,#00H
+                        572     ;               }
+                        573                             ; SOURCE LINE # 94
+                        574     ;       }
+                        575                             ; SOURCE LINE # 95
+                        576     ; }
+                        577                             ; SOURCE LINE # 96
+0000DB                  578     ?C0023:
+0000DB D0D0             579             POP     PSW
+0000DD D082             580             POP     DPL
+0000DF D083             581             POP     DPH
+0000E1 D0F0             582             POP     B
+0000E3 D0E0             583             POP     ACC
+0000E5 32               584             RETI    
+                        585     ; END OF PCA0_ISR
+                        586     
+                        587             END
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    11
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                    T Y P E  V A L U E     ATTRIBUTES
+
+?C0002. . . . . . . . . . . . . . . . .    C  ADDR  0052H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0003. . . . . . . . . . . . . . . . .    C  ADDR  0041H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0004. . . . . . . . . . . . . . . . .    C  ADDR  0038H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0005. . . . . . . . . . . . . . . . .    C  ADDR  002AH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0007. . . . . . . . . . . . . . . . .    C  ADDR  0084H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0012. . . . . . . . . . . . . . . . .    C  ADDR  0076H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0013. . . . . . . . . . . . . . . . .    C  ADDR  007DH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0014. . . . . . . . . . . . . . . . .    C  ADDR  0080H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0018. . . . . . . . . . . . . . . . .    C  ADDR  00C0H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0019. . . . . . . . . . . . . . . . .    C  ADDR  00D8H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0020. . . . . . . . . . . . . . . . .    C  ADDR  00D4H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0021. . . . . . . . . . . . . . . . .    C  ADDR  00CFH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0022. . . . . . . . . . . . . . . . .    C  ADDR  00D4H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0023. . . . . . . . . . . . . . . . .    C  ADDR  00DBH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0024. . . . . . . . . . . . . . . . .    C  ADDR  001AH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0025. . . . . . . . . . . . . . . . .    C  ADDR  0028H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0027. . . . . . . . . . . . . . . . .    C  ADDR  00ADH     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C0028. . . . . . . . . . . . . . . . .    C  ADDR  00C7H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+?C?SIDIV. . . . . . . . . . . . . . . .    C  ADDR  -------       EXT
+?C_INITSEG. . . . . . . . . . . . . . .    C  SEG   00000AH       REL=UNIT, ALN=BYTE
+?DT?INTERRUPTS. . . . . . . . . . . . .    D  SEG   000004H       REL=UNIT, ALN=BYTE
+?PR?PCA0_ISR?INTERRUPTS . . . . . . . .    C  SEG   0000E6H       REL=UNIT, ALN=BYTE
+?PR?TIMER0_ISR?INTERRUPTS . . . . . . .    C  SEG   000018H       REL=UNIT, ALN=BYTE
+ACC . . . . . . . . . . . . . . . . . .    D  ADDR  00E0H     A   
+ACC_ACC0. . . . . . . . . . . . . . . .    B  ADDR  00E0H.0   A   
+ACC_ACC1. . . . . . . . . . . . . . . .    B  ADDR  00E0H.1   A   
+ACC_ACC2. . . . . . . . . . . . . . . .    B  ADDR  00E0H.2   A   
+ACC_ACC3. . . . . . . . . . . . . . . .    B  ADDR  00E0H.3   A   
+ACC_ACC4. . . . . . . . . . . . . . . .    B  ADDR  00E0H.4   A   
+ACC_ACC5. . . . . . . . . . . . . . . .    B  ADDR  00E0H.5   A   
+ACC_ACC6. . . . . . . . . . . . . . . .    B  ADDR  00E0H.6   A   
+ACC_ACC7. . . . . . . . . . . . . . . .    B  ADDR  00E0H.7   A   
+ADC0. . . . . . . . . . . . . . . . . .    D  ADDR  00BDH     A   
+ADC0AC. . . . . . . . . . . . . . . . .    D  ADDR  00B3H     A   
+ADC0CF. . . . . . . . . . . . . . . . .    D  ADDR  00BCH     A   
+ADC0CN0 . . . . . . . . . . . . . . . .    D  ADDR  00E8H     A   
+ADC0CN0_ADBMEN. . . . . . . . . . . . .    B  ADDR  00E8H.6   A   
+ADC0CN0_ADBUSY. . . . . . . . . . . . .    B  ADDR  00E8H.4   A   
+ADC0CN0_ADCM0 . . . . . . . . . . . . .    B  ADDR  00E8H.0   A   
+ADC0CN0_ADCM1 . . . . . . . . . . . . .    B  ADDR  00E8H.1   A   
+ADC0CN0_ADCM2 . . . . . . . . . . . . .    B  ADDR  00E8H.2   A   
+ADC0CN0_ADEN. . . . . . . . . . . . . .    B  ADDR  00E8H.7   A   
+ADC0CN0_ADINT . . . . . . . . . . . . .    B  ADDR  00E8H.5   A   
+ADC0CN0_ADWINT. . . . . . . . . . . . .    B  ADDR  00E8H.3   A   
+ADC0CN1 . . . . . . . . . . . . . . . .    D  ADDR  00B2H     A   
+ADC0GT. . . . . . . . . . . . . . . . .    D  ADDR  00C3H     A   
+ADC0GTH . . . . . . . . . . . . . . . .    D  ADDR  00C4H     A   
+ADC0GTL . . . . . . . . . . . . . . . .    D  ADDR  00C3H     A   
+ADC0H . . . . . . . . . . . . . . . . .    D  ADDR  00BEH     A   
+ADC0L . . . . . . . . . . . . . . . . .    D  ADDR  00BDH     A   
+ADC0LT. . . . . . . . . . . . . . . . .    D  ADDR  00C5H     A   
+ADC0LTH . . . . . . . . . . . . . . . .    D  ADDR  00C6H     A   
+ADC0LTL . . . . . . . . . . . . . . . .    D  ADDR  00C5H     A   
+ADC0MX. . . . . . . . . . . . . . . . .    D  ADDR  00BBH     A   
+ADC0PWR . . . . . . . . . . . . . . . .    D  ADDR  00DFH     A   
+ADC0TK. . . . . . . . . . . . . . . . .    D  ADDR  00B9H     A   
+AR6 . . . . . . . . . . . . . . . . . .    D  ADDR  000EH     A   
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    12
+
+B . . . . . . . . . . . . . . . . . . .    D  ADDR  00F0H     A   
+B_B0. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.0   A   
+B_B1. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.1   A   
+B_B2. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.2   A   
+B_B3. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.3   A   
+B_B4. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.4   A   
+B_B5. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.5   A   
+B_B6. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.6   A   
+B_B7. . . . . . . . . . . . . . . . . .    B  ADDR  00F0H.7   A   
+CKCON0. . . . . . . . . . . . . . . . .    D  ADDR  008EH     A   
+CLKSEL. . . . . . . . . . . . . . . . .    D  ADDR  00A9H     A   
+CMP0CN0 . . . . . . . . . . . . . . . .    D  ADDR  009BH     A   
+CMP0MD. . . . . . . . . . . . . . . . .    D  ADDR  009DH     A   
+CMP0MX. . . . . . . . . . . . . . . . .    D  ADDR  009FH     A   
+CMP1CN0 . . . . . . . . . . . . . . . .    D  ADDR  00BFH     A   
+CMP1MD. . . . . . . . . . . . . . . . .    D  ADDR  00ABH     A   
+CMP1MX. . . . . . . . . . . . . . . . .    D  ADDR  00AAH     A   
+CRC0AUTO. . . . . . . . . . . . . . . .    D  ADDR  00D2H     A   
+CRC0CN0 . . . . . . . . . . . . . . . .    D  ADDR  00CEH     A   
+CRC0CNT . . . . . . . . . . . . . . . .    D  ADDR  00D3H     A   
+CRC0DAT . . . . . . . . . . . . . . . .    D  ADDR  00DEH     A   
+CRC0FLIP. . . . . . . . . . . . . . . .    D  ADDR  00CFH     A   
+CRC0IN. . . . . . . . . . . . . . . . .    D  ADDR  00DDH     A   
+DERIVID . . . . . . . . . . . . . . . .    D  ADDR  00ADH     A   
+DEVICEID. . . . . . . . . . . . . . . .    D  ADDR  00B5H     A   
+DP. . . . . . . . . . . . . . . . . . .    D  ADDR  0082H     A   
+DPH . . . . . . . . . . . . . . . . . .    D  ADDR  0083H     A   
+DPL . . . . . . . . . . . . . . . . . .    D  ADDR  0082H     A   
+EIE1. . . . . . . . . . . . . . . . . .    D  ADDR  00E6H     A   
+EIP1. . . . . . . . . . . . . . . . . .    D  ADDR  00F3H     A   
+F_EVEN?143. . . . . . . . . . . . . . .    D  ADDR  0002H     R   SEG=?DT?INTERRUPTS
+F_VIDEO?144 . . . . . . . . . . . . . .    D  ADDR  0003H     R   SEG=?DT?INTERRUPTS
+FLKEY . . . . . . . . . . . . . . . . .    D  ADDR  00B7H     A   
+HFO0CAL . . . . . . . . . . . . . . . .    D  ADDR  00C7H     A   
+IE. . . . . . . . . . . . . . . . . . .    D  ADDR  00A8H     A   
+IE_EA . . . . . . . . . . . . . . . . .    B  ADDR  00A8H.7   A   
+IE_ES0. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.4   A   
+IE_ESPI0. . . . . . . . . . . . . . . .    B  ADDR  00A8H.6   A   
+IE_ET0. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.1   A   
+IE_ET1. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.3   A   
+IE_ET2. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.5   A   
+IE_EX0. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.0   A   
+IE_EX1. . . . . . . . . . . . . . . . .    B  ADDR  00A8H.2   A   
+INTERRUPTS. . . . . . . . . . . . . . .    -- ----  -------       
+IP. . . . . . . . . . . . . . . . . . .    D  ADDR  00B8H     A   
+IP_PS0. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.4   A   
+IP_PSPI0. . . . . . . . . . . . . . . .    B  ADDR  00B8H.6   A   
+IP_PT0. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.1   A   
+IP_PT1. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.3   A   
+IP_PT2. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.5   A   
+IP_PX0. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.0   A   
+IP_PX1. . . . . . . . . . . . . . . . .    B  ADDR  00B8H.2   A   
+IT01CF. . . . . . . . . . . . . . . . .    D  ADDR  00E4H     A   
+LFO0CN. . . . . . . . . . . . . . . . .    D  ADDR  00B1H     A   
+LINE_COUNT?142. . . . . . . . . . . . .    D  ADDR  0000H     R   SEG=?DT?INTERRUPTS
+P0. . . . . . . . . . . . . . . . . . .    D  ADDR  0080H     A   
+P0_B0 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.0   A   
+P0_B1 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.1   A   
+P0_B2 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.2   A   
+P0_B3 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.3   A   
+P0_B4 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.4   A   
+P0_B5 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.5   A   
+P0_B6 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.6   A   
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    13
+
+P0_B7 . . . . . . . . . . . . . . . . .    B  ADDR  0080H.7   A   
+P0MASK. . . . . . . . . . . . . . . . .    D  ADDR  00FEH     A   
+P0MAT . . . . . . . . . . . . . . . . .    D  ADDR  00FDH     A   
+P0MDIN. . . . . . . . . . . . . . . . .    D  ADDR  00F1H     A   
+P0MDOUT . . . . . . . . . . . . . . . .    D  ADDR  00A4H     A   
+P0SKIP. . . . . . . . . . . . . . . . .    D  ADDR  00D4H     A   
+P1. . . . . . . . . . . . . . . . . . .    D  ADDR  0090H     A   
+P1_B0 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.0   A   
+P1_B1 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.1   A   
+P1_B2 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.2   A   
+P1_B3 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.3   A   
+P1_B4 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.4   A   
+P1_B5 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.5   A   
+P1_B6 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.6   A   
+P1_B7 . . . . . . . . . . . . . . . . .    B  ADDR  0090H.7   A   
+P1MASK. . . . . . . . . . . . . . . . .    D  ADDR  00EEH     A   
+P1MAT . . . . . . . . . . . . . . . . .    D  ADDR  00EDH     A   
+P1MDIN. . . . . . . . . . . . . . . . .    D  ADDR  00F2H     A   
+P1MDOUT . . . . . . . . . . . . . . . .    D  ADDR  00A5H     A   
+P1SKIP. . . . . . . . . . . . . . . . .    D  ADDR  00D5H     A   
+P2. . . . . . . . . . . . . . . . . . .    D  ADDR  00A0H     A   
+P2_B0 . . . . . . . . . . . . . . . . .    B  ADDR  00A0H.0   A   
+P2_B1 . . . . . . . . . . . . . . . . .    B  ADDR  00A0H.1   A   
+P2MDOUT . . . . . . . . . . . . . . . .    D  ADDR  00A6H     A   
+PCA0. . . . . . . . . . . . . . . . . .    D  ADDR  00F9H     A   
+PCA0_ISR. . . . . . . . . . . . . . . .    C  ADDR  0000H     R   SEG=?PR?PCA0_ISR?INTERRUPTS
+PCA0CENT. . . . . . . . . . . . . . . .    D  ADDR  009EH     A   
+PCA0CLR . . . . . . . . . . . . . . . .    D  ADDR  009CH     A   
+PCA0CN0 . . . . . . . . . . . . . . . .    D  ADDR  00D8H     A   
+PCA0CN0_CCF0. . . . . . . . . . . . . .    B  ADDR  00D8H.0   A   
+PCA0CN0_CCF1. . . . . . . . . . . . . .    B  ADDR  00D8H.1   A   
+PCA0CN0_CCF2. . . . . . . . . . . . . .    B  ADDR  00D8H.2   A   
+PCA0CN0_CF. . . . . . . . . . . . . . .    B  ADDR  00D8H.7   A   
+PCA0CN0_CR. . . . . . . . . . . . . . .    B  ADDR  00D8H.6   A   
+PCA0CP0 . . . . . . . . . . . . . . . .    D  ADDR  00FBH     A   
+PCA0CP1 . . . . . . . . . . . . . . . .    D  ADDR  00E9H     A   
+PCA0CP2 . . . . . . . . . . . . . . . .    D  ADDR  00EBH     A   
+PCA0CPH0. . . . . . . . . . . . . . . .    D  ADDR  00FCH     A   
+PCA0CPH1. . . . . . . . . . . . . . . .    D  ADDR  00EAH     A   
+PCA0CPH2. . . . . . . . . . . . . . . .    D  ADDR  00ECH     A   
+PCA0CPL0. . . . . . . . . . . . . . . .    D  ADDR  00FBH     A   
+PCA0CPL1. . . . . . . . . . . . . . . .    D  ADDR  00E9H     A   
+PCA0CPL2. . . . . . . . . . . . . . . .    D  ADDR  00EBH     A   
+PCA0CPM0. . . . . . . . . . . . . . . .    D  ADDR  00DAH     A   
+PCA0CPM1. . . . . . . . . . . . . . . .    D  ADDR  00DBH     A   
+PCA0CPM2. . . . . . . . . . . . . . . .    D  ADDR  00DCH     A   
+PCA0H . . . . . . . . . . . . . . . . .    D  ADDR  00FAH     A   
+PCA0L . . . . . . . . . . . . . . . . .    D  ADDR  00F9H     A   
+PCA0MD. . . . . . . . . . . . . . . . .    D  ADDR  00D9H     A   
+PCA0POL . . . . . . . . . . . . . . . .    D  ADDR  0096H     A   
+PCA0PWM . . . . . . . . . . . . . . . .    D  ADDR  00F7H     A   
+PCON0 . . . . . . . . . . . . . . . . .    D  ADDR  0087H     A   
+PRTDRV. . . . . . . . . . . . . . . . .    D  ADDR  00F6H     A   
+PSCTL . . . . . . . . . . . . . . . . .    D  ADDR  008FH     A   
+PSW . . . . . . . . . . . . . . . . . .    D  ADDR  00D0H     A   
+PSW_AC. . . . . . . . . . . . . . . . .    B  ADDR  00D0H.6   A   
+PSW_CY. . . . . . . . . . . . . . . . .    B  ADDR  00D0H.7   A   
+PSW_F0. . . . . . . . . . . . . . . . .    B  ADDR  00D0H.5   A   
+PSW_F1. . . . . . . . . . . . . . . . .    B  ADDR  00D0H.1   A   
+PSW_OV. . . . . . . . . . . . . . . . .    B  ADDR  00D0H.2   A   
+PSW_PARITY. . . . . . . . . . . . . . .    B  ADDR  00D0H.0   A   
+PSW_RS0 . . . . . . . . . . . . . . . .    B  ADDR  00D0H.3   A   
+PSW_RS1 . . . . . . . . . . . . . . . .    B  ADDR  00D0H.4   A   
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    14
+
+REF0CN. . . . . . . . . . . . . . . . .    D  ADDR  00D1H     A   
+REG0CN. . . . . . . . . . . . . . . . .    D  ADDR  00C9H     A   
+REVID . . . . . . . . . . . . . . . . .    D  ADDR  00B6H     A   
+RSTSRC. . . . . . . . . . . . . . . . .    D  ADDR  00EFH     A   
+SBUF0 . . . . . . . . . . . . . . . . .    D  ADDR  0099H     A   
+SCON0 . . . . . . . . . . . . . . . . .    D  ADDR  0098H     A   
+SCON0_MCE . . . . . . . . . . . . . . .    B  ADDR  0098H.5   A   
+SCON0_RB8 . . . . . . . . . . . . . . .    B  ADDR  0098H.2   A   
+SCON0_REN . . . . . . . . . . . . . . .    B  ADDR  0098H.4   A   
+SCON0_RI. . . . . . . . . . . . . . . .    B  ADDR  0098H.0   A   
+SCON0_SMODE . . . . . . . . . . . . . .    B  ADDR  0098H.7   A   
+SCON0_TB8 . . . . . . . . . . . . . . .    B  ADDR  0098H.3   A   
+SCON0_TI. . . . . . . . . . . . . . . .    B  ADDR  0098H.1   A   
+SMB0ADM . . . . . . . . . . . . . . . .    D  ADDR  00D6H     A   
+SMB0ADR . . . . . . . . . . . . . . . .    D  ADDR  00D7H     A   
+SMB0CF. . . . . . . . . . . . . . . . .    D  ADDR  00C1H     A   
+SMB0CN0 . . . . . . . . . . . . . . . .    D  ADDR  00C0H     A   
+SMB0CN0_ACK . . . . . . . . . . . . . .    B  ADDR  00C0H.1   A   
+SMB0CN0_ACKRQ . . . . . . . . . . . . .    B  ADDR  00C0H.3   A   
+SMB0CN0_ARBLOST . . . . . . . . . . . .    B  ADDR  00C0H.2   A   
+SMB0CN0_MASTER. . . . . . . . . . . . .    B  ADDR  00C0H.7   A   
+SMB0CN0_SI. . . . . . . . . . . . . . .    B  ADDR  00C0H.0   A   
+SMB0CN0_STA . . . . . . . . . . . . . .    B  ADDR  00C0H.5   A   
+SMB0CN0_STO . . . . . . . . . . . . . .    B  ADDR  00C0H.4   A   
+SMB0CN0_TXMODE. . . . . . . . . . . . .    B  ADDR  00C0H.6   A   
+SMB0DAT . . . . . . . . . . . . . . . .    D  ADDR  00C2H     A   
+SMB0TC. . . . . . . . . . . . . . . . .    D  ADDR  00ACH     A   
+SP. . . . . . . . . . . . . . . . . . .    D  ADDR  0081H     A   
+SPI0CFG . . . . . . . . . . . . . . . .    D  ADDR  00A1H     A   
+SPI0CKR . . . . . . . . . . . . . . . .    D  ADDR  00A2H     A   
+SPI0CN0 . . . . . . . . . . . . . . . .    D  ADDR  00F8H     A   
+SPI0CN0_MODF. . . . . . . . . . . . . .    B  ADDR  00F8H.5   A   
+SPI0CN0_NSSMD0. . . . . . . . . . . . .    B  ADDR  00F8H.2   A   
+SPI0CN0_NSSMD1. . . . . . . . . . . . .    B  ADDR  00F8H.3   A   
+SPI0CN0_RXOVRN. . . . . . . . . . . . .    B  ADDR  00F8H.4   A   
+SPI0CN0_SPIEN . . . . . . . . . . . . .    B  ADDR  00F8H.0   A   
+SPI0CN0_SPIF. . . . . . . . . . . . . .    B  ADDR  00F8H.7   A   
+SPI0CN0_TXBMT . . . . . . . . . . . . .    B  ADDR  00F8H.1   A   
+SPI0CN0_WCOL. . . . . . . . . . . . . .    B  ADDR  00F8H.6   A   
+SPI0DAT . . . . . . . . . . . . . . . .    D  ADDR  00A3H     A   
+TCON. . . . . . . . . . . . . . . . . .    D  ADDR  0088H     A   
+TCON_IE0. . . . . . . . . . . . . . . .    B  ADDR  0088H.1   A   
+TCON_IE1. . . . . . . . . . . . . . . .    B  ADDR  0088H.3   A   
+TCON_IT0. . . . . . . . . . . . . . . .    B  ADDR  0088H.0   A   
+TCON_IT1. . . . . . . . . . . . . . . .    B  ADDR  0088H.2   A   
+TCON_TF0. . . . . . . . . . . . . . . .    B  ADDR  0088H.5   A   
+TCON_TF1. . . . . . . . . . . . . . . .    B  ADDR  0088H.7   A   
+TCON_TR0. . . . . . . . . . . . . . . .    B  ADDR  0088H.4   A   
+TCON_TR1. . . . . . . . . . . . . . . .    B  ADDR  0088H.6   A   
+TH0 . . . . . . . . . . . . . . . . . .    D  ADDR  008CH     A   
+TH1 . . . . . . . . . . . . . . . . . .    D  ADDR  008DH     A   
+TIMER0_ISR. . . . . . . . . . . . . . .    C  ADDR  0000H     R   SEG=?PR?TIMER0_ISR?INTERRUPTS
+TL0 . . . . . . . . . . . . . . . . . .    D  ADDR  008AH     A   
+TL1 . . . . . . . . . . . . . . . . . .    D  ADDR  008BH     A   
+TMOD. . . . . . . . . . . . . . . . . .    D  ADDR  0089H     A   
+TMR2. . . . . . . . . . . . . . . . . .    D  ADDR  00CCH     A   
+TMR2CN0 . . . . . . . . . . . . . . . .    D  ADDR  00C8H     A   
+TMR2CN0_T2SPLIT . . . . . . . . . . . .    B  ADDR  00C8H.3   A   
+TMR2CN0_T2XCLK. . . . . . . . . . . . .    B  ADDR  00C8H.0   A   
+TMR2CN0_TF2CEN. . . . . . . . . . . . .    B  ADDR  00C8H.4   A   
+TMR2CN0_TF2H. . . . . . . . . . . . . .    B  ADDR  00C8H.7   A   
+TMR2CN0_TF2L. . . . . . . . . . . . . .    B  ADDR  00C8H.6   A   
+TMR2CN0_TF2LEN. . . . . . . . . . . . .    B  ADDR  00C8H.5   A   
+AX51 MACRO ASSEMBLER  INTERRUPTS                                                            01/12/18 14:30:01 PAGE    15
+
+TMR2CN0_TR2 . . . . . . . . . . . . . .    B  ADDR  00C8H.2   A   
+TMR2H . . . . . . . . . . . . . . . . .    D  ADDR  00CDH     A   
+TMR2L . . . . . . . . . . . . . . . . .    D  ADDR  00CCH     A   
+TMR2RL. . . . . . . . . . . . . . . . .    D  ADDR  00CAH     A   
+TMR2RLH . . . . . . . . . . . . . . . .    D  ADDR  00CBH     A   
+TMR2RLL . . . . . . . . . . . . . . . .    D  ADDR  00CAH     A   
+TMR3. . . . . . . . . . . . . . . . . .    D  ADDR  0094H     A   
+TMR3CN0 . . . . . . . . . . . . . . . .    D  ADDR  0091H     A   
+TMR3H . . . . . . . . . . . . . . . . .    D  ADDR  0095H     A   
+TMR3L . . . . . . . . . . . . . . . . .    D  ADDR  0094H     A   
+TMR3RL. . . . . . . . . . . . . . . . .    D  ADDR  0092H     A   
+TMR3RLH . . . . . . . . . . . . . . . .    D  ADDR  0093H     A   
+TMR3RLL . . . . . . . . . . . . . . . .    D  ADDR  0092H     A   
+TMR_RELOAD. . . . . . . . . . . . . . .    D  ADDR  -------       EXT
+VDM0CN. . . . . . . . . . . . . . . . .    D  ADDR  00FFH     A   
+VIDEO . . . . . . . . . . . . . . . . .    X  ADDR  -------       EXT
+WDTCN . . . . . . . . . . . . . . . . .    D  ADDR  0097H     A   
+XBR0. . . . . . . . . . . . . . . . . .    D  ADDR  00E1H     A   
+XBR1. . . . . . . . . . . . . . . . . .    D  ADDR  00E2H     A   
+XBR2. . . . . . . . . . . . . . . . . .    D  ADDR  00E3H     A   
+
+
+REGISTER BANK(S) USED: 0 1 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S).

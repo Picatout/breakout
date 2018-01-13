@@ -1,0 +1,176 @@
+C51 COMPILER V9.53.0.0   TUNE                                                              01/12/2018 15:27:03 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE TUNE
+OBJECT MODULE PLACED IN .\src\tune.OBJ
+COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v4\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\Jacques
+                    -\SimplicityStudio\v4_workspace\BBchip8\src\tune.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATFUZZY(3)
+                    - OPTIMIZE(9,SPEED) DEFINE(NDEBUG=1) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:\Users\Jacques\SimplicityStudio\v4_workspace\B
+                    -Bchip8\inc;C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/8051/v4.1.0//Device/shared/si8051base;C:/SiliconLabs/Simpli
+                    -cityStudio/v4/developer/sdks/8051/v4.1.0//Device/EFM8BB1/inc) REGFILE(BBchip8.ORC) PRINT(.\src\tune.lst) COND CODE PAGEW
+                    -IDTH(120) PAGELENGTH(65) OBJECT(.\src\tune.OBJ)
+
+line level    source
+
+   1          /*
+   2           * tune.c
+   3           *
+   4           *  Created on: 2018-01-12
+   5           *      Author: Jacques
+   6           */
+   7          
+   8          
+   9          #include "chip8.h"
+  10          
+  11          #define TUNE_LEN (23)
+  12          
+  13          #define WHOLE (32)
+  14          #define WHITE (16)
+  15          #define BLACK (8)
+  16          #define HALF  (4)
+  17          #define QUARTER (2)
+  18          #define HEIGHT (1)
+  19          
+  20          #define PAUSE (0)
+  21          #define C2 (1)
+  22          #define C2S (2)
+  23          #define D2B (2)
+  24          #define D2 (3)
+  25          #define D2S (4)
+  26          #define E2B (4)
+  27          #define E2 (5)
+  28          #define F2 (6)
+  29          #define F2S (7)
+  30          #define G2B (7)
+  31          #define G2  (8)
+  32          #define G2S (9)
+  33          #define A2B (9)
+  34          #define A2  (10)
+  35          #define A2S (11)
+  36          #define B2B (11)
+  37          #define B2  (12)
+  38          #define C3 (13)
+  39          #define C3S (14)
+  40          #define D3B (14)
+  41          #define D3 (15)
+  42          #define D3S (16)
+  43          #define E3B (16)
+  44          #define E3 (17)
+  45          #define F3 (18)
+  46          #define F3S (19)
+  47          #define G3B (19)
+  48          #define G3  (20)
+  49          #define G3S (21)
+  50          #define A3B (21)
+  51          #define A3  (22)
+C51 COMPILER V9.53.0.0   TUNE                                                              01/12/2018 15:27:03 PAGE 2   
+
+  52          #define A3S (23)
+  53          #define B3B (23)
+  54          #define B3  (24)
+  55          
+  56          unsigned int code scale[25]={
+  57                  0xffff, // silence
+  58                  63534, // C2
+  59                  63649, // C#
+  60                  63752, // D
+  61                  63855, // D#
+  62                  63947, // E
+  63                  64037, // F
+  64                  64118, // F#
+  65                  64198, // G
+  66                  64275, // G#
+  67                  64344, // A
+  68                  64411, // A#
+  69                  64474, // B
+  70                  64535, // C3
+  71                  64589, // C3#
+  72                  64644, // D3
+  73                  64693, // D3#
+  74                  64741, // E3
+  75                  64785, // F3
+  76                  64827, // F3#
+  77                  64867, // G3
+  78                  64904, // G3#
+  79                  64940, // A3
+  80                  64973, // A3#
+  81                  65005, // B4
+  82          };
+  83          
+  84          
+  85          char code starwar[]={
+  86                  PAUSE,WHITE+BLACK,
+  87                  F2,HALF,
+  88                  F2,HALF,
+  89                  F2,HALF,
+  90                  B2B,WHITE,
+  91                  F3,BLACK,
+  92                  E3B,HALF,
+  93                  D3,HALF,
+  94                  C3,HALF,
+  95                  B3B,WHITE,
+  96                  F3,BLACK,
+  97                  E3B,HALF,
+  98                  D3,HALF,
+  99                  C3,HALF,
+ 100                  B3B,WHITE,
+ 101                  F3,BLACK,
+ 102                  E3B,HALF,
+ 103                  D3,HALF,
+ 104                  E3B,HALF,
+ 105                  C3,WHITE+BLACK,
+ 106                  F2,HALF,
+ 107                  F2,HALF,
+ 108                  F2,HALF,
+ 109          };
+ 110          
+ 111          char code imagine[]={
+ 112                  B3,HALF,
+ 113                  E2,HALF,
+ 114                  G2,HALF,
+C51 COMPILER V9.53.0.0   TUNE                                                              01/12/2018 15:27:03 PAGE 3   
+
+ 115                  E2,HALF,
+ 116                  G2,BLACK,
+ 117                  B2,HALF,
+ 118                  B2,QUARTER,
+ 119                  A2,QUARTER,
+ 120                  A2,BLACK,
+ 121                  PAUSE,WHITE+BLACK,
+ 122                  PAUSE,HALF,
+ 123              A2,BLACK,
+ 124                  PAUSE,WHITE+BLACK,
+ 125                  PAUSE,WHITE,
+ 126                  G2,HALF,
+ 127                  G2,HALF,
+ 128                  G2,BLACK,
+ 129                  B2,HALF,
+ 130                  B2,QUARTER,
+ 131                  A2,QUARTER,
+ 132                  A2,BLACK,
+ 133                  PAUSE,WHITE+BLACK,
+ 134          
+ 135          };
+C51 COMPILER V9.53.0.0   TUNE                                                              01/12/2018 15:27:03 PAGE 4   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =    140    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
